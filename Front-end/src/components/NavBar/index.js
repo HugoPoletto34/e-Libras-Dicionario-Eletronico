@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/alt-text */
+import React from 'react';
 import styled from 'styled-components';
 
 const Bar = styled.nav`
@@ -11,15 +13,14 @@ const Bar = styled.nav`
   img {
     padding: 5px;
   }
-`
+`;
 
 export default function NavBar() {
-  return(
-
+  return (
     <Bar>
       <img
-        src={"/elib_logo.png"}
-        height={"100%"}
+        src="/elib_logo.png"
+        height="100%"
       />
     </Bar>
 
