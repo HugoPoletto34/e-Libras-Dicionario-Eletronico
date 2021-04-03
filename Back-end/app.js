@@ -1,5 +1,6 @@
 const express = require('express'); 
 const app = express();
+const pool = require('./db')
 
 const bodyParser = require('body-parser'); 
 const cors = require('cors');
@@ -28,7 +29,21 @@ app.use((req,res,next) => {
     next();
 })
 
-app.use('/api', routes)
+// app.use('/api', routes)
+
+app.get('/db', async(req,res) => {
+    try {
+        const client = await pool.connect(); 
+        const result = await client.query('SELECT * FROM test_table');
+        const results = {'results': (result) ? result.rows : null};
+
+        res.json(results);
+        client.release();
+    } catch (err) {
+        console.error(err);
+        res.send("Error " + err)
+    }
+})
 
 app.use((req,res,next) => {
     const erro = new Error('Não Encontrado')
