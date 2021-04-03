@@ -6,6 +6,7 @@ const GlobalStyle = createGlobalStyle`
   * {
     box-sizing: border-box;
   }
+
   body {
     margin: 0;
     padding: 0;
@@ -13,11 +14,14 @@ const GlobalStyle = createGlobalStyle`
     display: flex;
     flex-direction: column;
     font-family: 'Lato', sans-serif;
+    background: #e8e8e8;
     // Deixa branco no começo
   }
+
   html, body {
     min-height: 100vh;
   }
+
   #__next {
     flex: 1;
     display: flex;
@@ -31,7 +35,8 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <title>e-Libras Dicionário Eletrônico</title>
+        <title>e-Libras</title>
+        <link rel="icon" type="imagem/png" href="/favicon.png" />
       </Head>
       {/* <ThemeProvider theme={theme}> */}
       <GlobalStyle />
