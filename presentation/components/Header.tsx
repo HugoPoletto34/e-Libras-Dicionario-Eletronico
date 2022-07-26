@@ -19,52 +19,47 @@ export default function Header({value, setValue, filteredList, setFilteredList, 
   const inputRef = useRef<HTMLInputElement>(null);
   return (
     <header className={style.header}>
-
+      
       <Image onClick={() => router.push("./")} width={150} height={50} src="/logoooo.png" alt="e-libras" />
-      <div className={style.search}>
-        <Button onClick={handleOpen} variant="outlined"  sx={{ color: "#ffffffa4", borderColor: "#ffffffa4" }} endIcon={<SearchIcon />}>
-          Buscar...
-        </Button>
 
-        <Modal
-          open={open}
-          onClose={handleClose}
-          aria-labelledby="search"
-          aria-describedby="parent-modal-description"
-          onFocus={() => {
-            if (inputRef.current)
-              inputRef.current.querySelector("input")?.focus();
-          }
-          }
-        >
-          <Box className={style.modalSearch} >
-            <IconButton style={{ float: 'right' }} onClick={handleClose} color="default" aria-label="upload picture" component="label">
-              <CloseIcon />
-            </IconButton>
-            <TextField
-              ref={inputRef}
-              id="search"
-              color="info"
-              autoComplete="off"
-              value={value}
-              onChange={(event: any) => {
-                atualizarLista(event.target.value, setFilteredList, setValue, listaPalavras);
-                setValue(event.target.value);
-              }}
-              className={style.searchInput}
-              >
+      <Button onClick={handleOpen} variant="outlined" className={style.buttonSearch} endIcon={<SearchIcon />}>
+        Buscar...
+      </Button>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="search"
+        aria-describedby="parent-modal-description"
+        onFocus={() => {
+          if (inputRef.current)
+            inputRef.current.querySelector("input")?.focus();
+        }
+        }
+      >
+        <Box className={style.modalSearch} >
+          <IconButton style={{ float: 'right' }} onClick={handleClose} color="default" aria-label="upload picture" component="label">
+            <CloseIcon />
+          </IconButton>
+          <TextField
+            ref={inputRef}
+            id="search"
+            color="info"
+            autoComplete="off"
+            value={value}
+            onChange={(event: any) => {
+              atualizarLista(event.target.value, setFilteredList, setValue, listaPalavras);
+              setValue(event.target.value);
+            }}
+            className={style.searchInput}
+            >
 
-            </TextField>
-            <div style={{ overflowY: 'scroll', height: '83%' }}>
-              <ListaDicionario filteredList={filteredList} doOnClick={handleClose}/>
-            </div>               
+          </TextField>
+          <div style={{ overflowY: 'scroll', height: '83%' }}>
+            <ListaDicionario filteredList={filteredList} doOnClick={handleClose}/>
+          </div>               
 
-          </Box>
-        </Modal>
-
-        
-      </div>
-
+        </Box>
+      </Modal>
     </header>
   );
 }

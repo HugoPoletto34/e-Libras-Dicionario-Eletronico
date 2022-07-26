@@ -6,15 +6,8 @@ import { Palavra } from '../data/entities/Palavra';
 import { GetServerSideProps, NextComponentType, NextPageContext } from 'next';
 import { PalavraService } from '../data/PalavraService';
 import { useRouter } from 'next/router';
+import style from "../styles/Home.module.css";
 
-// export const getServerSideProps: GetServerSideProps = async (ctx) => {
-//   const listaPalavras = await PalavraService.list();
-
-//   return {
-//     pageProps : { listaPalavras }
-//   }
-
-// }
 
 MyApp.getInitialProps = async (appContext: any) => {
   const listaPalavras = await PalavraService.list();
@@ -46,7 +39,10 @@ function MyApp({ Component, pageProps, listaPalavras }: {Component: NextComponen
   
   return <>
       <Header value={value} setValue={setValue} filteredList={filteredList} setFilteredList={setFilteredList} atualizarLista={atualizarLista} listaPalavras={listaPalavras} />
-      <Component {...pageProps} filteredList={listaPalavras} />
+      <div className={style.space}>
+        <Component {...pageProps} filteredList={listaPalavras} />
+
+      </div>
   </>
 }
 

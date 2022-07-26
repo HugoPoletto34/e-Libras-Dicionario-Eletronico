@@ -9,11 +9,23 @@
 .header {
   background-color: rgb(8, 0, 94);
   display: flex;
+  justify-content: space-between;
+  position: fixed;
   top: 0;
-  left: 0;
   right: 0;
+  left: 0;
   padding: 10px;
-  height: 4rem;
+  z-index: 1;
+}
+
+.space {
+  margin-top: 4rem;
+}
+
+.buttonSearch {
+  color: #ffffffa4;
+  border-color: #ffffffa4;
+
 }
 
 .modalSearch {
@@ -28,22 +40,6 @@
   box-shadow: 24;
   padding: 10px;
 }
-
-#search {
-  color: #000000;
-}
-
-.search {
-  margin: 0 0 0 auto;
-  display: flex;
-  flex-direction: row;
-}
-
-.searchInput {
-  width: 100%;
-  /* width: 200px; */
-}
-
 
 .main {
   margin: 10px;
