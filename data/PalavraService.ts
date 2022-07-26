@@ -7,6 +7,13 @@ export class PalavraService {
     }
 
     static async list(): Promise<Palavra[]> {
-      return await api.get('/palavra/listar').then(response => response.data).catch(() => null);
+      return await api.get('/palavra').then(
+        response => response.data
+        ).catch(
+          () => null);
+    }
+
+    static async get(palavra: string): Promise<Palavra> {
+      return await api.get('/palavra/{palavra}'.replace('{palavra}', palavra)).then(response => response.data[0]).catch(() => null);
     }
 }
