@@ -2,8 +2,13 @@
   padding: 0 2rem;
 }
 
-.asd {
-  background-color: #c9c9c9;
+.containerCartao {
+  background-color: #67808b00;
+}
+
+.cartao {
+  width: 100%;
+  padding: 5px;
 }
 
 .header {
@@ -19,7 +24,12 @@
 }
 
 .space {
-  margin-top: 4.5rem;
+  margin-top: 4.4rem;
+  
+}
+
+.dicionarioPrincipal {
+  background-color: #011b3b;
 }
 
 .buttonSearch {
@@ -79,6 +89,37 @@
 
   grid-row: 2;
 
+}
+
+.titleLetra {
+  padding: 5px 10px;
+  color: white;
+  background-color: #0f2a4b;
+  font-weight: 600;
+}
+
+.cardTitle {
+  display: flex;
+  flex-direction: row;
+}
+
+.cardTitle h5 {
+  margin: auto 0;
+  padding: 5px;
+  font-weight: 570;
+}
+
+.descPalavra {
+  max-width: 300ch;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.imageLibras {
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 .descPalavra {
